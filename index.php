@@ -105,7 +105,7 @@ function replyAudioMessage($bot, $replyToken, $originalContentUrl, $audioLength)
 }
 
 //複数のメッセージをまとめて返信。引数はLINEBot、返信先、メッセージ(可変長引数)
-function replyAudioMessage($bot, $replyToken, ...$msgs) {
+function replyMultiMessage($bot, $replyToken, ...$msgs) {
   //MultiMessageBuilderをインスタンス化
   $builder = new \LINE\LINEBot\MessageBuilder\MultiMessageBuilder();
   // ビルダーにメッセージをすべて追加
