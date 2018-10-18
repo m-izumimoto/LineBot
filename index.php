@@ -179,7 +179,7 @@ $client = new Goutte\Client();
 //XMLファイルを取得
 $crawler = $client->request('GET', 'http://wheather.livedoor.com/forecast/rss/primary_area.xml');
 //市名のみを抽出しユーザが入力した市名と比較
-foreach ($crawler->filter('channel ldWheather|source pref city') as $city) {
+foreach ((array)$crawler->filter('channel ldWheather|source pref city') as $city) {
   // 一致すれば住所IDを取得し処理抜ける
   if($city->getAttribute('title') == $location || $city->getAttribute('title') . "市" == $location){
     $locationId = $city->getAttribute('id');
@@ -190,11 +190,11 @@ foreach ($crawler->filter('channel ldWheather|source pref city') as $city) {
     // 候補の配列
     $suggestArray = array();
     // 件名を抽出しユーザーが入力した件名と比較
-    foreach ($crawler->filter('channel ldWheather|source pref') as $pref) {
+    foreach ((array)$crawler->filter('channel ldWheather|source pref') as $pref) {
       // 一致すれば
       if(strpos($perf->getAttribute('title'),$location) !== false){
         // その件に属する市を配列に追加
-        foreach ($pref->childNodes as $child) {
+        foreach ((array)$pref->childNodes as $child) {
           if($child instanceof DOMElement && $child->nodeName == 'city'){
             array_push($suggestArray,$child->getAttribute('title'));
           }
@@ -207,7 +207,7 @@ foreach ($crawler->filter('channel ldWheather|source pref city') as $city) {
       //アクションの配列
       $actionArray = array();
       // 候補をすべてアクションにして追加
-      foreach ($suggestArray as $city) {
+      foreach ((array)$suggestArray as $city) {
         array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ($city, $city));
       }
       // Buttonsテンプレートを返信
