@@ -221,7 +221,7 @@ foreach ($crawler->filter('channel ldWheather|source pref city') as $city) {
     // 以降の処理はスキップ
     continue;
   }
-  replyTextMessage($bot, $event->getReplyToken(),$location . 'の住所IDは' . $locationId . "です。")
+  replyTextMessage($bot, $event->getReplyToken(),$location . 'の住所IDは' . $locationId . "です。");
 }
 
 ?>
