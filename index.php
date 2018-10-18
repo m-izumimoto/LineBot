@@ -59,6 +59,8 @@ foreach ((array)$events as $event){
       $locationId = $city->getAttribute('id');
       break;
     }
+  }
+
     // 一致するものがなければ
     if(empty($locationId)) {
       // 候補の配列
@@ -97,7 +99,6 @@ foreach ((array)$events as $event){
     }
     replyTextMessage($bot, $event->getReplyToken(),$location . 'の住所IDは' . $locationId . "です。");
   }
-}
 
 //テキストを返信。引数はLINEBot、返信先、テキスト
 function replyTextMessage($bot,$replyToken,$text) {
