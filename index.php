@@ -31,7 +31,7 @@ try{
 }
 
 //配列に格納された各イベントをループで処理
-foreach ($events as $event){
+foreach ((array)$events as $event){
   // MessageEventクラスのインスタンスでなければ処理をスキップ
   if(!($event instanceof \LINE\LINEBot\Event\MessageEvent)){
     error_log('Non Message event has come');
