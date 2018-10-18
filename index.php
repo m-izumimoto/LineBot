@@ -43,7 +43,7 @@ foreach ((array)$events as $event){
     continue;
   }
   //オウム返し
-  $bot->replyText($event->getReplyToken(), $event->getText());
+  // $bot->replyText($event->getReplyToken(), $event->getText());
 }
 
 //テキストを返信。引数はLINEBot、返信先、テキスト
