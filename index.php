@@ -177,9 +177,9 @@ $locationId;
 //XMLファイルをパースするクラス
 $client = new Goutte\Client();
 //XMLファイルを取得
-$crawler = $client->request('GET', 'http://wheather.livedoor.com/forecast/rss/primary_area.xml');
+$crawler = $client->request('GET', 'http://weather.livedoor.com/forecast/rss/primary_area.xml');
 //市名のみを抽出しユーザが入力した市名と比較
-foreach ((array)$crawler->filter('channel ldWheather|source pref city') as $city) {
+foreach ((array)$crawler->filter('channel ldWeather|source pref city') as $city) {
   // 一致すれば住所IDを取得し処理抜ける
   if($city->getAttribute('title') == $location || $city->getAttribute('title') . "市" == $location){
     $locationId = $city->getAttribute('id');
@@ -190,7 +190,7 @@ foreach ((array)$crawler->filter('channel ldWheather|source pref city') as $city
     // 候補の配列
     $suggestArray = array();
     // 件名を抽出しユーザーが入力した件名と比較
-    foreach ((array)$crawler->filter('channel ldWheather|source pref') as $pref) {
+    foreach ((array)$crawler->filter('channel ldWeather|source pref') as $pref) {
       // 一致すれば
       if(strpos($perf->getAttribute('title'),$location) !== false){
         // その件に属する市を配列に追加
