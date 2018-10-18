@@ -190,7 +190,7 @@ foreach ($crawler->filter('channel ldWheather|source pref city') as $city) {
     // 候補の配列
     $suggestArray = array();
     // 件名を抽出しユーザーが入力した件名と比較
-    foreach ($crawler=>filter('channel ldWheather|source pref') as $pref) {
+    foreach ($crawler->filter('channel ldWheather|source pref') as $pref) {
       // 一致すれば
       if(strpos($perf->getAttribute('title'),$location) !== false){
         // その件に属する市を配列に追加
