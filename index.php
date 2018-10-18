@@ -85,7 +85,7 @@ foreach ((array)$events as $event){
           array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ($city, $city));
         }
         // Buttonsテンプレートを返信
-        $builder = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder('見つかりませんでした。',new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder('もしかして？', null, $actionArray));
+        $builder = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder('見つかりませんでした。',new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder('見つかりませんでした。','もしかして？', null, $actionArray));
         $bot->replyMessage($event->getReplyToken(),$builder);
         // 候補が存在しない場合
       } else{
