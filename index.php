@@ -43,9 +43,9 @@ foreach ((array)$events as $event){
     continue;
   }
   //オウム返し
-  // $bot->replyText($event->getReplyToken(), $event->getText());
+  $bot->replyText($event->getReplyToken(), $event->getText());
   // 画像を返信する
-  replyImageMessage($bot, $event->getReplyToken(),'https://' . $_SERVER['HTTP_HOST'] . '/imgs/cat.jpg' , 'https://' . $_SERVER['HTTP_HOST'] . '/imgs/dog.jpg');
+  // replyImageMessage$bot, $event->getReplyToken(),'https://' . $_SERVER['HTTP_HOST'] . '/imgs/cat.jpg' , 'https://' . $_SERVER['HTTP_HOST'] . '/imgs/dog.jpg');
 }
 
 //テキストを返信。引数はLINEBot、返信先、テキスト
